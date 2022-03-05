@@ -38,3 +38,28 @@ WHEN I test API POST and DELETE routes in Insomnia Core
 THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 ```
 
+## Table of Contents
+- [Description](#description)
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [Questions](#questions)
+
+## Installation
+💾
+`npm init`
+
+'npm install'
+
+## Usage 
+💻
+
+`npm start`
+
+With Nodemon:
+
+`npm run watch`
