@@ -51,9 +51,10 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ## Installation
 💾
+
 `npm init`
 
-'npm install'
+`npm install`
 
 ## Usage 
 💻
@@ -63,3 +64,15 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 With Nodemon:
 
 `npm run watch`
+
+## Testing
+✏️
+
+No current testing
+
+## Contributing
+:octocat: [Samuel Hagos](https://github.com/esghhe)
+
+## Questions
+✉️ Contact me with any questions: [email](samghagos@gmail.com) , [GitHub](https://github.com/esghhe)<br />
+
