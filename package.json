@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/esghhe/Social-Network-API#readme",
   "dependencies": {
+    "moment": "^2.29.1",
     "mongoose": "^6.2.4"
   }
 }
