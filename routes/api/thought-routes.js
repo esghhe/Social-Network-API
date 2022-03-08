@@ -1,31 +1,32 @@
-// Require express router
 const router = require('express').Router();
-
-// Set requirementgs (from thoughts-controller)
 const {
-    getAllThoughts, 
-    getThoughtsById, 
-    createThoughts, 
-    updateThoughts,
-    deleteThoughts,
-    addReaction,
-    deleteReaction
-} = require('../../controllers/thoughts-controllers');
+    createThought,
+    getAllThoughts,
+    getThoughtById,
+    updateThoughtById,
+    removeThoughtById,
+    createReaction,
+    removeReaction
+} = require('../../controllers/thought-controller');
 
-// -- directs to; /api/thoughts <GET>
-router.route('/').get(getAllThoughts);
+router //Set up GET all and POST at /api/thoughts
+    .route('/')
+    .get(getAllThoughts) //GET all thoughts
+    .post(createThought); //POST a new thought {"thoughtText": "", "username": "", "userId": ""}
 
-// --Directs to: /api/thoughts/:id <GET, PUT, Delete>
-router.route('/').get(getThoughtsById).put(updateThoughts).delete(deleteThoughts);
+router //Set up GET one, PUT, and DELETE at /api/thoughts/:id
+    .route('/:id')
+    .get(getThoughtById) //GET a single thought by _id
+    .put(updateThoughtById) //PUT - upadate thought by its _id
+    .delete(removeThoughtById); //DELETE - remove thought by its _id
 
-// -- Directs to: /api/thoughts/:userId <POST>
-router.route('/:userId').post(createThoughts);
 
-// -- Directs to: /api/thoughts/:thoughtId/reactions <POST>
-router.route('/:thoughtId/reactions').post(addReaction);
+router //Set up PUT and DELETE /api/thoughts/:thoughtId/reactions
+    .route('/:thoughtId/reactions')
+    .post(createReaction) //POST - create a reaction stored in a single thought's reactions array
 
-// -- Directs to: /api/thoughts/:thoughtId/reactionId <DELETE>
-router.route('/:thoughtId/reactions/:reactionId').delete(deleteReaction);
+router //Set up PUT and DELETE /api/thoughts/:thoughtId/reactions
+    .route('/:thoughtId/:reactionId')
+    .delete(removeReaction); //DELETE - pull and remove a reaction by the reaction's reactionId
 
-// Export module router
 module.exports = router;

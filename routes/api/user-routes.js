@@ -1,25 +1,29 @@
-// require express router
 const router = require('express').Router();
-
-// set requirements
 const {
     getAllUsers,
-    getUsersById,
-    createUsers,
-    updateUsers,
-    deleteUsers,
-    addFriend,
-    deleteFriend
-} = require('../../controllers/users-controller');
+    createUser,
+    getUserById,
+    updateUserById,
+    deleteUserById,
+    addNewFriend,
+    deleteUserFriend
+} = require('../../controllers/user-controller');
 
-// -- Directs to: /api/users <GET, POST>
-router.route('/').get(getAllUsers).post(createUsers);
 
-// -- Directs to: /api/users/:id <GET, PUT, DELETE>
-router.route('/:id').get(getUsersById).put(updateUsers).delete(deleteUsers);
+router //Set up GET all and POST at /api/users
+    .route('/')
+    .get(getAllUsers) //GET all users
+    .post(createUser); //POST a new user { "username": "kchey","email": "kchey@gmail.com"}
 
-// -- Directs to: /api/users/:userId/friends/:friendId <POST, DELETE>
-router.route('/:id/friends/:friendId').post(addFriend).delete(deleteFriend)
+router //Set up GET one, PUT, and DELETE at /api/users/:id
+    .route('/:id')
+    .get(getUserById) //GET a user by _id, populate thoughts and friends
+    .put(updateUserById) //PUT - update user by its _id
+    .delete(deleteUserById); //DELETE - remove user by its _id w/ associated thoughts
 
-// Module export router
+router //Set up GET one, PUT, and DELETE at /api/users/:id
+    .route('/:userId/friends/:friendId')
+    .post(addNewFriend) //POST to add a new friend to a user's friend list
+    .delete(deleteUserFriend); //DELETE to remove a friend from a user's friend list
+
 module.exports = router;
